@@ -102,7 +102,6 @@
                         } else {
                             val.alt_promo_image_url = "//kodekloud.s3.amazonaws.com/sites/553912c46e6f645bc2000000/d9b90a9aff278549145256be3534ff76/default.jpg"
                         }
-                        
                     } else {
                         val.alt_promo_image_url = (val.promo_image_url_abs);
                         if (val.promotionable_type == "Store") {
@@ -110,28 +109,28 @@
                             val.store_detail_btn = store_details.slug 
                             val.store_name = store_details.name
                         }
-    
                     }
-                    
                     if (val.description.length > 110) {
                        val.description =  val.description.substring(0,100)+'...';
                     } 
-                          
-                    start = new Date (val.start_date + "T05:00:00Z");
-                    end = new Date (val.end_date + "T05:00:00Z");
+                    // start = new Date (val.start_date + "T05:00:00Z");
+                    // end = new Date (val.end_date + "T05:00:00Z");
                     // start.setDate(start.getDate()+1);
                     // end.setDate(end.getDate()+1);
-                    val.dates = (get_month(start.getMonth()))+" "+(start.getDate())+" - "+get_month(end.getMonth())+" "+end.getDate();
+                    // val.dates = (get_month(start.getMonth()))+" "+(start.getDate())+" - "+get_month(end.getMonth())+" "+end.getDate();
                     
-               
-                    
+                    var start = moment(val.start_date).tz(getPropertyTimeZone());
+                    var end = moment(val.end_date).tz(getPropertyTimeZone());
+                    if (start.format("DMY") == end.format("DMY")){
+                    	val.dates = start.format("MMM D");
+                    }
+                    else {
+                    	val.dates = start.format("MMM D") + " - " + end.format("MMM D");
+                    }
                 }
-                
                 var rendered = Mustache.render(template_html,val);
                 item_rendered.push(rendered);
-    
             });
-            
             $(container).show();
             $(container).html(item_rendered.join(''));
         };
