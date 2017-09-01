@@ -101,14 +101,29 @@
             Mustache.parse(template_html);   // optional, speeds up future uses
             item_list.push(collection);
             $.each( item_list , function( key, val ) {
-                if ((val.promo_image_url).indexOf('missing.png') > -1){
+                // if ((val.promo_image_url).indexOf('missing.png') > -1){
+                //     if (val.promotionable_type == "Store") {
+                //         var store_details = getStoreDetailsByID(val.promotionable_id);
+                //         val.alt_promo_image_url = getImageURL(store_details.store_front_url);
+                //         val.store_detail_btn = store_details.slug 
+                //         val.store_name = store_details.name
+                //     } else {
+                //         val.alt_promo_image_url = "//codecloud.cdn.speedyrails.net/sites/5564befa6e6f640f57000000/db9346412a4048f345511cf51111c59f/default (1).jpg"
+                //     }
+                if ((val.promo_image_url).indexOf('missing.png') > -1 || val.promo_image_url == null){
                     if (val.promotionable_type == "Store") {
                         var store_details = getStoreDetailsByID(val.promotionable_id);
-                        val.alt_promo_image_url = getImageURL(store_details.store_front_url);
+                        val.alt_promo_image_url = val.promo_image_url_abs;
                         val.store_detail_btn = store_details.slug 
                         val.store_name = store_details.name
-                    } else {
-                        val.alt_promo_image_url = "//codecloud.cdn.speedyrails.net/sites/5564befa6e6f640f57000000/db9346412a4048f345511cf51111c59f/default (1).jpg"
+                    }
+                    if((val.promo_image_url_abs).indexOf('missing.png') > -1){
+                        var store_front = getImageURL(store_details.store_front_url);
+                        val.alt_promo_image_url = store_front;
+                
+                        if(store_front == null) {
+                            val.alt_promo_image_url = "//codecloud.cdn.speedyrails.net/sites/5564befa6e6f640f57000000/db9346412a4048f345511cf51111c59f/default (1).jpg"
+                        }
                     }
                 } else {
                     if (val.promotionable_type == "Store") {
