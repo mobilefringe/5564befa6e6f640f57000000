@@ -396,37 +396,6 @@ background-color: #FFFFFF ;
             }
             
         }
-    
-        function convert_hour(d){
-            var h = addZero(d.getUTCHours());
-            var m = addZero(d.getUTCMinutes());
-            var s = addZero(d.getUTCSeconds());
-            if (h >= 12) {
-                if ( h != 12) {
-                    h = h - 12;    
-                }
-                
-                i = "PM"
-            } else {
-                if (h == 0) { h = 12 }
-                i = "AM"
-            }
-            return h+":"+m+" "+i;
-        }
-        
-        
-        
-        function addZero(i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
-        }
-        
-
-
-        
-        
     });
     
     var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) );
