@@ -391,7 +391,7 @@ background-color: #FFFFFF ;
             $(container).html(item_rendered.join(''));
             if (type == "store_details"){
                 if (collection.website != "" && collection.website != undefined){
-                        $("#store_website_link").show();
+                    $("#store_website_link").show();
                 }
             }
             
