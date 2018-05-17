@@ -91,7 +91,8 @@
                 imagePath: '//cdn.jsdelivr.net/jquery.jreject/1.0.2/images/'
             });      
         });
-        setEndPoint('//westside.mallmaverick.com/api/v4/westside/all.json');
+        // setEndPoint('//westside.mallmaverick.com/api/v4/westside/all.json');
+        setEndPoint('//twinpine.mallmaverick.com/api/v4/twinpine/all.json');
     </script>
     <style>
     .bk_logo_svg {
