@@ -167,9 +167,9 @@
         .flex-control-nav {
             background: #fff;
         }
-    .flex-control-paging li a {
-        color : #000;
-    }
+        .flex-control-paging li a {
+            color : #000;
+        }
         /*social media box color*/
         #social_media_wrapper{
             background:#18498d;
