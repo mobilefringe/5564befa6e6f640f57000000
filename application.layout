@@ -210,7 +210,7 @@
         .site-map-section a:hover {
         }
         .copyright, .copyright a {
-        c   olor: #FFF;
+            color: #FFF;
         }
         .copyright a:hover, .copyright a:focus {
             color: #FFF !important;
