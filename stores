@@ -13,7 +13,7 @@
     </div>
     <div class="inside_page_content">
         <div class="left_column">
-            <img class="inside_banner_image" alt="" src="//codecloud.cdn.speedyrails.net/sites/5afdc7866e6f6436bfc40000/image/png/1580852461000/STORE DIRECTORY IMAGE - Westside Marketplace.png"/>
+            <img class="inside_banner_image" alt="" src=""/>
             <div class="mobile_cat_list" style="display:none">
                 <p class="right_column_header">categories</p>
                 <div id="mobile_categories_container">
@@ -90,6 +90,11 @@
             
             $("#loading_screen").hide();
             $("#main_content").show();
+            
+            // dynamic banner 
+            var bannerInfo = getRepoDetailsByName('Stores / Contact Us Banner')
+            var bannerImageUrl = bannerInfo.images[0].image_url
+            $(".inside_banner_image").attr("src", bannerImageUrl);
         }
         
         function render_categories(categories){
